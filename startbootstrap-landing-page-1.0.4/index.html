@@ -31,10 +31,12 @@
     <![endif]-->
     <script type="text/javascript">
 
-        function openModal() {
+        function openRegisterModal() {
             $('#registerModal').modal('show');
         }
-
+        function openLoginModal() {
+            $('#loginModal').modal('show');
+        }
     </script>
 </head>
 
@@ -63,10 +65,10 @@
                         <a href="#services">Recursos</a>
                     </li>
                     <li>
-                        <a name="register" href="#" onclick="openModal()">Registrar</a>
+                        <a name="register" href="#" onclick="openRegisterModal()">Registrar</a>
                     </li>
                     <li>
-                        <a name="login" href="startbootstrap-sb-admin-2-1.0.7/pages/login.html"><i class=" fa fa-share-square-o fa-fw"></i>Entrar</a>
+                        <a name="login" href="#" onclick="openLoginModal()"><i class=" fa fa-share-square-o fa-fw"></i>Entrar</a>
                     </li>
                 </ul>
             </div>
@@ -343,6 +345,8 @@
         </div>
     </footer>
 
+
+
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -458,6 +462,27 @@
                 </form>
             </div>
         </div>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Login</h3>
+            </div>
+            <form id="form_frete_modal">
+                <div class="modal-body" style="overflow-y: auto; height: 430px">
+
+                    
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Login</button>
+               </div>
+            </form>
+        </div>
+    </div>
     </div>
 
     <!-- jQuery -->
