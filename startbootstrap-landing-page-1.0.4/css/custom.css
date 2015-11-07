@@ -1,0 +1,9 @@
+﻿#confirmaCadastroModal {
+top:30%;
+outline: none;
+}
+
+#confirmaCadastroModal .modal-dialog
+{
+    width: 300px; /* your width */
+}
