@@ -52,9 +52,11 @@
             $('#loginModal').modal('show');
         }
         function confirmarEsqueciSenha() {
-            $('#esqueciSenhaModal').modal('hide');
-            $('#confirmaEnvioEmailModal').modal('show');
-        }
+            if ($('#emailEsqueci').val() != "") {
+                $('#esqueciSenhaModal').modal('hide');
+                $('#confirmaEnvioEmailModal').modal('show');
+            }
+        }   
     </script>
 </head>
 
@@ -563,24 +565,24 @@
                 <div class="modal-header">
                     Preencha com seu email e uma nova senha será enviada!
                 </div>
-                <form id="form_esqueci_modal" onsubmit="confirmarEsqueciSenha()">
+                <form id="form_esqueci_modal">
                     <div class="modal-body" style="overflow-y: auto; height: 150px; left: 60px">
 
                         <div id="control_email" class="form-group padding-modal required">
                             <label class="col-sm-9 control-label" id="lbl_ti">E-mail: </label>
                             <br>
                             <div class="col-xs-8 col-sm-9">
-                                <input type="text" class="form-control" placeholder="" required>
+                                <input id="emailEsqueci" type="text" class="form-control" placeholder="" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <button onclick="voltarEsqueciSenha()" data-toggle="modal" class="btn btn-default">Voltar</button>
-                        <button type="submit" data-toggle="modal" class="btn btn-primary">Confirmar</button>
-                        
+                        <button type="submit" onclick="confirmarEsqueciSenha()" data-toggle="modal" class="btn btn-primary">Confirmar</button>                      
+                        <button type="button" onclick="voltarEsqueciSenha()" class="btn btn-default" data-dismiss="modal">Voltar</button>
                     </div>
                 </form>
+                
             </div>
         </div>
     </div>
