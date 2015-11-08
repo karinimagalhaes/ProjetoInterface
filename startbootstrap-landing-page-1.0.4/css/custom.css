@@ -7,3 +7,14 @@ outline: none;
 {
     width: 300px; /* your width */
 }
+
+#esqueciSenhaModal {
+top:30%;
+outline: none;
+}
+
+
+#esqueciSenhaModal .modal-dialog
+{
+    width: 500px; /* your width */
+}

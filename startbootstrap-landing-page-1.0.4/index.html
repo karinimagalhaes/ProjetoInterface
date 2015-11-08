@@ -37,12 +37,23 @@
         function openLoginModal() {
             $('#loginModal').modal('show');
         }
-  
-        
+
+        function openEsqueciSenhaModal() {
+            $('#loginModal').modal('hide');
+            $('#esqueciSenhaModal').modal('show');
+        }
         function openConfirmaModal() {
             $('#registerModal').modal('hide');
             $('#confirmaCadastroModal').modal('show');
             $('#form_register_modal').trigger('reset');
+        }
+        function voltarEsqueciSenha() {
+            $('#esqueciSenhaModal').modal('hide');
+            $('#loginModal').modal('show');
+        }
+        function confirmarEsqueciSenha() {
+            $('#esqueciSenhaModal').modal('hide');
+            $('#confirmaEnvioEmailModal').modal('show');
         }
     </script>
 </head>
@@ -72,14 +83,15 @@
                         <a href="#services">Recursos</a>
                     </li>
                     <li>
+                        <a href="#ajuda">Ajuda</a>
+                    </li>
+                    <li>
                         <a name="register" href="#" onclick="openRegisterModal()">Cadastrar</a>
                     </li>
                     <li>
                         <a name="login" href="#" onclick="openLoginModal()"><i class=" fa fa-share-square-o fa-fw"></i>Entrar</a>
                     </li>
-                    <li>
-                        <a name="ajuda" href="ajuda.html">Ajuda</a>
-                    </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -276,8 +288,70 @@
 
     </div>
     <!-- /.content-section-b -->
-
-
+    <a name="ajuda"></a>
+    <div class="content-section-b">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Central de ajuda</h2>
+                </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. Como fazer o cadastro?</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>Para fazer o cadastro basta clicar em Cadastrar na tela inicial do site e preencher seus dados.</p>
+                        </div>
+                    </div>
+                </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. Como acessar o sistema?</a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Se você já possui o cadastro clique em 'Entar' na página inicial e digite seu e-mail e senha cadastrados.</p>
+                        <p> Se você ainda não possui cadastro poderá acessar o sistema somente após fazê-lo.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. Como recuperar minha senha?</a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>
+                            Vá em 'Entar' e clique em 'Esqueci minha senha', para recuperar sua senha. Será enviado um e-mail com uma nova senha de acesso
+                            para o e-mail cadastrado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">4. Como cadastrar minhas despesas?</a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>As despesas podem ser cadastradas através do menu blabla...</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
     <!-- /.content-section-a -->
 
@@ -452,7 +526,7 @@
                                 <label>
                                     <input type="checkbox"> Mantenha-me conectado</label>
                             </div>
-                            <a name="senha" href="#myModal2"  >Esqueceu sua senha?</a>
+                            <a href="#" name="senha" onclick="openEsqueciSenhaModal()">Esqueceu sua senha?</a>
                         </div>
                     </div>
 
@@ -475,6 +549,50 @@
                 </div>
                 <div class="modal-body">
                     Uma mensagem de confirmação foi enviada ao seu email!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="esqueciSenhaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Preencha com seu email e uma nova senha será enviada!
+                </div>
+                <form id="form_esqueci_modal" onsubmit="confirmarEsqueciSenha()">
+                    <div class="modal-body" style="overflow-y: auto; height: 150px; left: 60px">
+
+                        <div id="control_email" class="form-group padding-modal required">
+                            <label class="col-sm-9 control-label" id="lbl_ti">E-mail: </label>
+                            <br>
+                            <div class="col-xs-8 col-sm-9">
+                                <input type="text" class="form-control" placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button onclick="voltarEsqueciSenha()" data-toggle="modal" class="btn btn-default">Voltar</button>
+                        <button type="submit" data-toggle="modal" class="btn btn-primary">Confirmar</button>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmaEnvioEmailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Verifique seu email!
+                </div>
+                <div class="modal-body">
+                    Uma mensagem como uma nova senha foi enviada ao email informado!
                 </div>
                 <div class="modal-footer">
                     <button type="button" onclick="hideModal()" class="btn btn-default" data-dismiss="modal">Voltar</button>
