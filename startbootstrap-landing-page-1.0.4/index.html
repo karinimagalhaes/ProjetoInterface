@@ -37,9 +37,8 @@
         function openLoginModal() {
             $('#loginModal').modal('show');
         }
-        function openAjudaModal() {
-            $('#ajudaModal').modal('show');
-        }
+  
+        
         function openConfirmaModal() {
             $('#registerModal').modal('hide');
             $('#confirmaCadastroModal').modal('show');
@@ -79,7 +78,7 @@
                         <a name="login" href="#" onclick="openLoginModal()"><i class=" fa fa-share-square-o fa-fw"></i>Entrar</a>
                     </li>
                     <li>
-                        <a name="ajuda" href="#" onclick="openAjudaModal()">Ajuda</a>
+                        <a name="ajuda" href="ajuda.html">Ajuda</a>
                     </li>
                 </ul>
             </div>
@@ -268,43 +267,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="media">
-                        <span class="pull-left">
-                            <i class="fa fa-fw fa-3x fa-flag-o"></i>
-                        </span>
-                        <div class="media-body">
-                            <h4 class="media-heading">Classificação automática</h4>
-                            <p>Defina regras de preenchimento para facilitar o lançamento e importação de suas despesas e receitas
-                                mais comuns.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="media">
-                        <span class="pull-left">
-                            <i class="fa fa-fw fa-3x fa-tablet"></i>
-                        </span>
-                        <div class="media-body">
-                            <h4 class="media-heading">Mobilidade</h4>
-                            <p>Acesse o Meu Dinheiro de qualquer lugar com seu Smartphone (Disponível para Android e Iphone)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="media">
-                        <span class="pull-left">
-                            <i class="fa fa-fw fa-3x fa-users"></i>
-                        </span>
-                        <div class="media-body">
-                            <h4 class="media-heading">Controle de Usuários</h4>
-                            <p>Crie usuários adicionais para seu cônjuge e seus filhos e deixe toda família participar da organização
-                                das finanças.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 
@@ -421,42 +384,41 @@
                                     <div class="input-group ">
                                         <div tabindex="-1" class="form-control file-caption  kv-fileinput-caption">
                                             <span class="glyphicon glyphicon-file kv-caption-icon"></span>
-                                <div
-                                class="file-caption-name"></div>
-                        </div>
-                        <div class="input-group-btn">
-                            <div class="btn btn-primary btn-file"> <i class="glyphicon glyphicon-folder-open"></i> &nbsp;Buscar
-                                <input id="img_logo" name="img_logo" type="file" class="file">
+                                <div class="file-caption-name"></div>
+                            </div>
+                            <div class="input-group-btn">
+                                <div class="btn btn-primary btn-file"> <i class="glyphicon glyphicon-folder-open"></i> &nbsp;Buscar
+                                    <input id="img_logo" name="img_logo" type="file" class="file">
+                                </div>
                             </div>
                         </div>
+                        </span>
                     </div>
-                    </span>
             </div>
+
+
+            <div id="control_tibb" class="form-group padding-modal">
+                <label class="col-md-3 control-label" id="lbl_bti">Email </label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" placeholder="" required>
+                </div>
+            </div>
+
+            <div id="control_tijjj" class="form-group padding-modal">
+                <label class="col-md-3 control-label" id="lbl_tibb">Senha</label>
+                <div class="col-md-9">
+                    <input type="password" class="form-control" placeholder="" required>
+                </div>
+            </div>
+
+
         </div>
 
-
-        <div id="control_tibb" class="form-group padding-modal">
-            <label class="col-md-3 control-label" id="lbl_bti">Email </label>
-            <div class="col-md-9">
-                <input type="text" class="form-control" placeholder="" required>
-            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="submit" data-toggle="modal" class="btn btn-primary">Cadastrar</button>
         </div>
-
-        <div id="control_tijjj" class="form-group padding-modal">
-            <label class="col-md-3 control-label" id="lbl_tibb">Senha</label>
-            <div class="col-md-9">
-                <input type="password" class="form-control" placeholder="" required>
-            </div>
-        </div>
-
-
-    </div>
-
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="submit" data-toggle="modal" class="btn btn-primary">Cadastrar</button>
-    </div>
-    </form>
+        </form>
     </div>
     </div>
     </div>
@@ -468,7 +430,7 @@
                     <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Login</h3>
                 </div>
                 <form id="form_login_modal">
-                    <div class="modal-body" style="overflow-y: auto; height: 230px; left: 60px">
+                    <div class="modal-body" style="overflow-y: auto; height: 270px; left: 60px">
 
                         <div id="control_email" class="form-group padding-modal required">
                             <label class="col-sm-9 control-label" id="lbl_ti">E-mail: </label>
@@ -478,51 +440,32 @@
                             </div>
                         </div>
 
-                        <div id="control_senha" class="form-group padding-modal required" >
+                        <div id="control_senha" class="form-group padding-modal required">
                             <label class="col-sm-9 control-label" id="lbl_ti">Senha: </label>
                             <br>
                             <div class="col-xs-8 col-sm-9">
                                 <input type="password" class="form-control" placeholder="" required>
                             </div>
                         </div>
-
+                        <div class="col-xs-6 .col-md-4" style="left:20px">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Mantenha-me conectado</label>
+                            </div>
+                            <a name="senha" href="#myModal2"  >Esqueceu sua senha?</a>
+                        </div>
                     </div>
 
                     <div class="modal-footer">
-                         <button type="submit" data-toggle="modal" class="btn btn-primary">Entrar</button>
+                        <button type="submit" data-toggle="modal" class="btn btn-primary">Entrar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="ajudaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
+    
 
 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Ajuda</h3>
-                </div>
-
-                <form id="form_frete_modal">
-                    <div class="modal-body" style="overflow-y: auto; height: 430px">
-                     <div class="content-box">
-                         <div class="item-group" data-home-group='wrapper'>
-                             <h2><a data-home-group="link" href="#" onclick="; return false;">Dúvidas frequentes</a></h2>
-                         </div>
-
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Ajuda</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
     <div class="modal fade" id="confirmaCadastroModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
