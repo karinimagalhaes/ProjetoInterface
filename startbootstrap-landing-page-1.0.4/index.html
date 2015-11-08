@@ -31,19 +31,20 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript">
-
         function openRegisterModal() {
             $('#registerModal').modal('show');
         }
         function openLoginModal() {
             $('#loginModal').modal('show');
         }
+        function openAjudaModal() {
+            $('#ajudaModal').modal('show');
+        }
         function openConfirmaModal() {
             $('#registerModal').modal('hide');
             $('#confirmaCadastroModal').modal('show');
             $('#form_register_modal').trigger('reset');
         }
-
     </script>
 </head>
 
@@ -76,6 +77,9 @@
                     </li>
                     <li>
                         <a name="login" href="#" onclick="openLoginModal()"><i class=" fa fa-share-square-o fa-fw"></i>Entrar</a>
+                    </li>
+                    <li>
+                        <a name="ajuda" href="#" onclick="openAjudaModal()">Ajuda</a>
                     </li>
                 </ul>
             </div>
@@ -133,7 +137,7 @@
                     </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6" style="top: 50px">
-                    <img class="img-responsive" src="img/contas.jpg" alt="" >
+                    <img class="img-responsive" src="img/financas.jpg" alt="">
                 </div>
             </div>
 
@@ -162,7 +166,8 @@
                         <div class="media-body">
                             <h4 class="media-heading">Controle suas despesas e receitas fixas e parceladas</h4>
                             <p>Tenha total controle do suas despesas e receitas e receba avisos por email do vencimento das
-                                contas.</p>
+                                contas.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -173,8 +178,7 @@
                         </span>
                         <div class="media-body">
                             <h4 class="media-heading">Importe seus extratos bancários</h4>
-                            <p>Cadastre suas contas controle os saldos facilmente, conciliando seus extratos bancários nos formatos
-                                OFX e OFC com suas despesas e receitas previstas.</p>
+                            <p>Cadastre suas contas controle os saldos facilmente.</p>
                         </div>
                     </div>
                 </div>
@@ -357,12 +361,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Cadastra-se</h3>
+                    <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Cadastre-se</h3>
                 </div>
                 <form id="form_register_modal" onsubmit="openConfirmaModal()">
                     <div class="modal-body" style="overflow-y: auto; height: 430px">
 
-                        <div id="control_ti" class="form-group padding-modal required"  >
+                        <div id="control_ti" class="form-group padding-modal required">
                             <label class="col-md-3 control-label" id="lbl_ti">Nome: </label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" placeholder="" required>
@@ -416,65 +420,110 @@
                                     </div>
                                     <div class="input-group ">
                                         <div tabindex="-1" class="form-control file-caption  kv-fileinput-caption">
-                                            <span class="glyphicon glyphicon-file kv-caption-icon"></span><div class="file-caption-name"></div>
-                                        </div>
-                                        <div class="input-group-btn">
-                                            <div class="btn btn-primary btn-file"> <i class="glyphicon glyphicon-folder-open"></i> &nbsp;Buscar 
-                                            <input id="img_logo" name="img_logo" type="file" class="file"></div>
-                                        </div>
-                                    </div>
-                                </span>
+                                            <span class="glyphicon glyphicon-file kv-caption-icon"></span>
+                                <div
+                                class="file-caption-name"></div>
+                        </div>
+                        <div class="input-group-btn">
+                            <div class="btn btn-primary btn-file"> <i class="glyphicon glyphicon-folder-open"></i> &nbsp;Buscar
+                                <input id="img_logo" name="img_logo" type="file" class="file">
                             </div>
                         </div>
+                    </div>
+                    </span>
+            </div>
+        </div>
 
 
-                        <div id="control_tibb" class="form-group padding-modal">
-                            <label class="col-md-3 control-label" id="lbl_bti">Email </label>
-                            <div class="col-md-9">
+        <div id="control_tibb" class="form-group padding-modal">
+            <label class="col-md-3 control-label" id="lbl_bti">Email </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" placeholder="" required>
+            </div>
+        </div>
+
+        <div id="control_tijjj" class="form-group padding-modal">
+            <label class="col-md-3 control-label" id="lbl_tibb">Senha</label>
+            <div class="col-md-9">
+                <input type="password" class="form-control" placeholder="" required>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="submit" data-toggle="modal" class="btn btn-primary">Cadastrar</button>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Login</h3>
+                </div>
+                <form id="form_login_modal">
+                    <div class="modal-body" style="overflow-y: auto; height: 230px; left: 60px">
+
+                        <div id="control_email" class="form-group padding-modal required">
+                            <label class="col-sm-9 control-label" id="lbl_ti">E-mail: </label>
+                            <br>
+                            <div class="col-xs-8 col-sm-9">
                                 <input type="text" class="form-control" placeholder="" required>
                             </div>
                         </div>
 
-                        <div id="control_tijjj" class="form-group padding-modal">
-                            <label class="col-md-3 control-label" id="lbl_tibb">Senha</label>
-                            <div class="col-md-9">
+                        <div id="control_senha" class="form-group padding-modal required" >
+                            <label class="col-sm-9 control-label" id="lbl_ti">Senha: </label>
+                            <br>
+                            <div class="col-xs-8 col-sm-9">
                                 <input type="password" class="form-control" placeholder="" required>
                             </div>
                         </div>
 
-
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" data-toggle="modal" class="btn btn-primary">Cadastra-se</button>
+                         <button type="submit" data-toggle="modal" class="btn btn-primary">Entrar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Login</h3>
-            </div>
-            <form id="form_frete_modal">
-                <div class="modal-body" style="overflow-y: auto; height: 430px">
 
-                    
+    <div class="modal fade" id="ajudaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Ajuda</h3>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Login</button>
-               </div>
-            </form>
+                <form id="form_frete_modal">
+                    <div class="modal-body" style="overflow-y: auto; height: 430px">
+                     <div class="content-box">
+                         <div class="item-group" data-home-group='wrapper'>
+                             <h2><a data-home-group="link" href="#" onclick="; return false;">Dúvidas frequentes</a></h2>
+                         </div>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Ajuda</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    </div>
-    
+
     <div class="modal fade" id="confirmaCadastroModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
