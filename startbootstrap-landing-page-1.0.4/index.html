@@ -56,7 +56,10 @@
                 $('#esqueciSenhaModal').modal('hide');
                 $('#confirmaEnvioEmailModal').modal('show');
             }
-        }   
+        }
+        function hideModalConfirmaCadastro() {
+            $('confirmaCadastroModal').modal('hide');
+        }
     </script>
 </head>
 
@@ -396,17 +399,18 @@
     </footer>
 
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div class="modal-dialog" style="width:650px">
+            <div class="modal-content" >
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Cadastre-se</h3>
+                        <font size="2" color="red">* Campos obrigatórios</font>
                 </div>
                 <form id="form_register_modal" onsubmit="openConfirmaModal()">
-                    <div class="modal-body" style="overflow-y: auto; height: 430px">
+                    <div class="modal-body" style="height: 440px">
 
                         <div id="control_ti" class="form-group padding-modal required">
-                            <label class="col-md-3 control-label" id="lbl_ti">Nome: </label>
+                            <label class="col-md-3 control-label" id="lbl_ti"><font color="red">*</font>Nome: </label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" placeholder="" required>
                             </div>
@@ -421,7 +425,8 @@
                             </div>
                             <label id="lbl_estado_orig" class="col-md-2 control-label">Genêro</label>
                             <div class="col-md-3">
-                                <select class="form-control" name="list_cidades_origem" id="list_cidades_origem">
+                                <span></span>
+                                <select class="form-control">
                                     <option value="0">Feminino</option>
                                     <option value="0">Masculino</option>
                                     <option value="0">Outro</option>
@@ -464,7 +469,7 @@
                             </div>
                             <div class="input-group-btn">
                                 <div class="btn btn-primary btn-file"> <i class="glyphicon glyphicon-folder-open"></i> &nbsp;Buscar
-                                    <input id="img_logo" name="img_logo" type="file" class="file">
+                                    <input  type="file">
                                 </div>
                             </div>
                         </div>
@@ -474,14 +479,14 @@
 
 
             <div id="control_tibb" class="form-group padding-modal">
-                <label class="col-md-3 control-label" id="lbl_bti">Email </label>
+                <label class="col-md-3 control-label" id="lbl_bti"><font color="red">*</font>Email </label>
                 <div class="col-md-9">
                     <input type="text" class="form-control" placeholder="" required>
                 </div>
             </div>
 
             <div id="control_tijjj" class="form-group padding-modal">
-                <label class="col-md-3 control-label" id="lbl_tibb">Senha</label>
+                <label class="col-md-3 control-label" id="lbl_tibb"><font color="red">*</font>Senha</label>
                 <div class="col-md-9">
                     <input type="password" class="form-control" placeholder="" required>
                 </div>
@@ -553,8 +558,8 @@
                     Uma mensagem de confirmação foi enviada ao seu email!
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
-                </div>
+                    <button type="button" onclick="location.reload()" data-dismiss="modal" class="btn btn-default" >Voltar</button>
+                </div> 
             </div>
         </div>
     </div>
@@ -578,8 +583,9 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" onclick="confirmarEsqueciSenha()" data-toggle="modal" class="btn btn-primary">Confirmar</button>                      
                         <button type="button" onclick="voltarEsqueciSenha()" class="btn btn-default" data-dismiss="modal">Voltar</button>
+
+                        <button type="submit" onclick="confirmarEsqueciSenha()" data-toggle="modal" class="btn btn-primary">Confirmar</button>                      
                     </div>
                 </form>
                 
