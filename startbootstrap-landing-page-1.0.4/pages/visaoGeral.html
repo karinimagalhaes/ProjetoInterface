@@ -32,7 +32,45 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/video-style.css" rel="stylesheet">
+    <link href="../css/fileinput.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="../css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript">
+        function openDespesaModal() {
+            $('#DespesaModal').modal('show');
+        }
+     
+			
+		function confirmarDespesa() {
+                $('#DespesaModal').modal('hide');
+                $('#confirmaDespesaModal').modal('show');
+           
+			
+        } 
+
+		function openReceitaModal() {
+            $('#ReceitaModal').modal('show');
+        }
+     
+			
+		function confirmarReceita() {
+                $('#ReceitaModal').modal('hide');
+                $('#confirmaReceitaModal').modal('show');
+           
+			
+        }  		
+    </script>
 </head>
 
 <body>
@@ -136,10 +174,10 @@
                             <a href="#"><i class="fa fa-plus-square-o fa-fw"></i> Cadastro <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li> 
-                                     <a href="#"> <i class="fa fa-plus-circle fa-fw"></i> Receita</a>
+                                     <a href="#" onclick="openReceitaModal()"> <i class="fa fa-plus-circle fa-fw"></i> Receita</a>
                                 </li>
                                 <li>
-                                     <a href="#"> <i class="fa fa-minus-circle fa-fw"></i> Despesa</a>
+                                     <a href="#" onclick="openDespesaModal()"> <i class="fa fa-minus-circle fa-fw"></i> Despesa</a>
                                 </li>
                                 <li>
                                     <a href="#"> <i class="fa fa-info-circle fa-fw"></i> Últimos Cadastros</a>
@@ -269,6 +307,153 @@
         </div>
         <!-- /#page-wrapper -->
 
+    </div>
+	
+	<div class="modal fade" id="DespesaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Cadastro de Despesas</h3>
+                </div>
+                <form id="form_register_modal" onsubmit="openConfirmaModal()">
+                    <div class="modal-body" style="overflow-y: auto; height: 430px">
+
+                        <div id="control_ti" class="form-group padding-modal required">
+                            <label class="col-md-3 control-label" id="lbl_ti">Nome: </label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="" required>
+                            </div>
+                        </div>
+						
+						<div id="control_ti" class="form-group padding-modal required">
+                            <label class="col-md-3 control-label" id="lbl_ti">Descrição: </label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+						
+						<div id="control_ti" class="form-group padding-modal required">
+                            <label id="lbl_estado_orig" class="col-md-3 control-label">Frequencia:  </label>
+                            <div class="col-md-3">
+                                <select class="form-control" name="list_cidades_origem" id="list_cidades_origem">
+                                    <option value="0">Única</option>
+                                    <option value="0">Semanal</option>
+                                    <option value="0">Mensal</option>
+                                </select>
+                            </div>
+                        </div>
+
+            <div id="control_tibb" class="form-group padding-modal">
+                <label class="col-md-3 control-label" id="lbl_bti">Valor: </label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="outcome" placeholder="" required>
+                </div>
+            </div>
+
+			<div class="col-lg-5 col-lg-offset-5 col-sm-6" style="top: 50px">
+                    <img class="img-coinsi" src="../img/outcome_coins.png" alt="">
+              </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="submit" data-toggle="modal" onclick="confirmarDespesa()" class="btn btn-primary">Cadastrar</button>
+        </div>
+        </form>
+    </div>
+    </div>
+    </div>
+	
+		<div class="modal fade" id="ReceitaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Cadastro de Receitas</h3>
+                </div>
+                <form id="form_register_modal" onsubmit="openConfirmaModal()">
+                    <div class="modal-body" style="overflow-y: auto; height: 430px">
+
+                        <div id="control_ti" class="form-group padding-modal required">
+                            <label class="col-md-3 control-label" id="lbl_ti">Nome: </label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="" required>
+                            </div>
+                        </div>
+						
+						<div id="control_ti" class="form-group padding-modal required">
+                            <label class="col-md-3 control-label" id="lbl_ti">Descrição: </label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+						
+						<div id="control_ti" class="form-group padding-modal required">
+                            <label id="lbl_estado_orig" class="col-md-3 control-label">Frequencia:  </label>
+                            <div class="col-md-3">
+                                <select class="form-control" name="list_cidades_origem" id="list_cidades_origem">
+                                    <option value="0">Única</option>
+                                    <option value="0">Semanal</option>
+                                    <option value="0">Mensal</option>
+                                </select>
+                            </div>
+                        </div>
+
+            <div id="control_tibb" class="form-group padding-modal">
+                <label class="col-md-3 control-label" id="lbl_bti">Valor: </label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="income" placeholder="" required>
+                </div>
+            </div>
+
+			<div class="col-lg-5 col-lg-offset-5 col-sm-6" style="top: 50px">
+                    <img class="img-coinsi" src="../img/income_coins.png" alt="">
+              </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="submit" data-toggle="modal" onclick="confirmarReceita()" class="btn btn-primary">Cadastrar</button>
+        </div>
+        </form>
+    </div>
+    </div>
+    </div>
+	
+	
+	<div class="modal fade" id="confirmaDespesaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Confirmação de cadastro.
+                </div>
+                <div class="modal-body">
+                    Despesa inserida com sucesso! Você poderá visualizá-la na página de visão geral.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="hideModal()" class="btn btn-default" data-dismiss="modal">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<div class="modal fade" id="confirmaReceitaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Confirmação de cadastro.
+                </div>
+                <div class="modal-body">
+                    Receita inserida com sucesso! Você poderá visualizá-la na página de visão geral.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="hideModal()" class="btn btn-default" data-dismiss="modal">Voltar</button>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /#wrapper -->
 

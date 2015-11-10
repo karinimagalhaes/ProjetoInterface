@@ -18,3 +18,13 @@ outline: none;
 {
     width: 500px; /* your width */
 }
+
+#income 
+{
+	color: green;
+}
+
+#outcome 
+{
+	color: red;
+}
