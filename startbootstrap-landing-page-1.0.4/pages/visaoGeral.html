@@ -55,6 +55,7 @@
 		function confirmarDespesa() {
                 $('#DespesaModal').modal('hide');
                 $('#confirmaDespesaModal').modal('show');
+				return false;
            
 			
         } 
@@ -67,13 +68,18 @@
 		function confirmarReceita() {
                 $('#ReceitaModal').modal('hide');
                 $('#confirmaReceitaModal').modal('show');
-           
-			
-        }  		
+				return false;
+        }
+
+		function openCentraldeAjuda(){
+			$('#page-wrapper').addClass('hidden');
+			$('#centralDeAjuda').removeClass('hidden');
+		}
     </script>
 </head>
 
 <body>
+
 
     <div id="wrapper">
 
@@ -186,15 +192,75 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="../ajuda.html"><i class="fa fa-question-circle fa-fw"></i> Ajuda</a>
+                            <a href="#" onclick="openCentraldeAjuda()"><i class="fa fa-question-circle fa-fw"></i> Ajuda</a>
                         </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
-            </div>
+            </div>	
             <!-- /.navbar-static-side -->
         </nav>
-
+<div class="bs-example hidden" id="centralDeAjuda">
+    <div class="page-header" style="margin-left: 300px">
+<h1>Ajuda</h1>
+</div>
+    <div class="box-conteiner">
+    <div class="col-md-9 .col-md-push-3" style="left:400px">
+    <div class="panel-group" id="accordion" style=" margin-top:20px">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. Como fazer o cadastro?</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <p>Para fazer o cadastro basta clicar em Cadastrar na tela inicial do site e preencher seus dados.</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. Como acessar o sistema?</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>Se você já possui o cadastro clique em 'Entar' na página inicial e digite seu e-mail e senha cadastrados.</p>
+                    <p> Se você ainda não possui cadastro poderá acessar o sistema somente após fazê-lo.
+                </div>
+            </div>
+        </div>
+           <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">4. Como recuperar minha senha?</a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>Vá em 'Entar' e clique em 'Esqueci minha senha', para recuperar sua senha. Será enviado um e-mail com uma nova senha de acesso
+                        para o e-mail cadastrado. </p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">4. Como cadastrar minhas despesas?</a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>As despesas podem ser cadastradas através do menu blabla...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -316,7 +382,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Cadastro de Despesas</h3>
                 </div>
-                <form id="form_register_modal" onsubmit="openConfirmaModal()">
+                <form id="form_register_modal" onsubmit="return confirmarDespesa()">
                     <div class="modal-body" style="overflow-y: auto; height: 430px">
 
                         <div id="control_ti" class="form-group padding-modal required">
@@ -359,7 +425,7 @@
 
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            <button type="submit" data-toggle="modal" onclick="confirmarDespesa()" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" data-toggle="modal"x class="btn btn-primary">Cadastrar</button>
         </div>
         </form>
     </div>
@@ -373,7 +439,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h3 class="modal-title" style="padding-left: 10px" id="myModalLabel">Cadastro de Receitas</h3>
                 </div>
-                <form id="form_register_modal" onsubmit="openConfirmaModal()">
+                <form id="form_register_modal" onsubmit="return confirmarReceita()">
                     <div class="modal-body" style="overflow-y: auto; height: 430px">
 
                         <div id="control_ti" class="form-group padding-modal required">
@@ -393,7 +459,7 @@
 						<div id="control_ti" class="form-group padding-modal required">
                             <label id="lbl_estado_orig" class="col-md-3 control-label">Frequencia:  </label>
                             <div class="col-md-3">
-                                <select class="form-control" name="list_cidades_origem" id="list_cidades_origem">
+                                <select class="form-control">
                                     <option value="0">Única</option>
                                     <option value="0">Semanal</option>
                                     <option value="0">Mensal</option>
@@ -416,7 +482,7 @@
 
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            <button type="submit" data-toggle="modal" onclick="confirmarReceita()" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" data-toggle="modal" class="btn btn-primary">Cadastrar</button>
         </div>
         </form>
     </div>
@@ -434,7 +500,7 @@
                     Despesa inserida com sucesso! Você poderá visualizá-la na página de visão geral.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" onclick="hideModal()" class="btn btn-default" data-dismiss="modal">Voltar</button>
+                    <button type="button" onclick="location.reload()" class="btn btn-default" data-dismiss="modal">Voltar</button>
                 </div>
             </div>
         </div>
@@ -450,7 +516,7 @@
                     Receita inserida com sucesso! Você poderá visualizá-la na página de visão geral.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" onclick="hideModal()" class="btn btn-default" data-dismiss="modal">Voltar</button>
+                    <button type="button" onclick="location.reload()" class="btn btn-default" data-dismiss="modal">Voltar</button>
                 </div>
             </div>
         </div>
